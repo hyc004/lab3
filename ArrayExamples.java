@@ -31,17 +31,23 @@ public class ArrayExamples {
       if(num < lowest) { lowest = num; }
     }
     double sum = 0;
+    int lowestCounter = 0;
     for(double num: arr) {
-      if(num != lowest) { sum += num; }
+      if(num != lowest) { sum += num; } else {
+        lowestCounter++;
+      }
     }
-    return sum / (arr.length - 1);
+    if (lowestCounter == arr.length) {
+      return 0;
+    }
+    return sum / (arr.length - lowestCounter);
   }
   public static void main (String[] args) {
-    int [] input2 = {1,2, 3, 4};
-    ArrayExamples.reverseInPlace(input2);
-    for (int i = 0; i < input2.length; i++) {
-      System.out.print(input2[i]);
-    }
+    double [] input2 = {1,1, 1, 1};
+    System.out.println(ArrayExamples.averageWithoutLowest(input2));
+    // for (int i = 0; i < input2.length; i++) {
+    //   System.out.print(input2[i]);
+    // }
   }
 
 }
